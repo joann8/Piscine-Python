@@ -15,7 +15,7 @@ def print_recipe(recipe):
 def print_cookbook():
     print("This Cookbook has %d recipe(s)" %(len(cookbook)))
     for tup in cookbook:
-        print_recipe(tup)
+        print(tup, end=' ')
 
 def delete_recipe(recipe):
     if recipe in cookbook:
@@ -29,21 +29,10 @@ def add_recipe(name):
         print("Recipe for %s already exists" %(name))
         return
     cookbook[name] ={}
-    nb = -1
-    while nb < 0 or nb > 10:
-        str = input("Please enter the number of ingredients [1 to 10]:\n")
-        if str.isdigit():
-            nb = int(str)
-            if nb < 0 or nb > 10:
-                print("You need to enter a number between 1 and 10")
-    index = 1
-    while index <= nb:
-        ingredient =  input("Please enter the ingredient %d:\n" %(index))
-        cookbook[name]['ingredients'] = { ingredient}
-        index += 1
+    ingredient = input("Please enter all your ingredients separated by a space and then enter:\n").split()
+    cookbook[name]['ingredients'] = ingredient
     meal_type =  input("Please enter the meal type: \n")
-    cookbook[name]['meal'] ={meal_type}
-    
+    cookbook[name]['meal'] = meal_type
     nb = -1
     while nb < 0:
         prep_time = input("Please enter the prep_time:\n")
@@ -51,7 +40,8 @@ def add_recipe(name):
             nb = int(prep_time)
         if nb < 0:
             print("You need to enter a positive number")
-    cookbook[name]['prep_time'] ={nb}
+    cookbook[name]['prep_time'] =nb
+    #cookbook[name] ={'ingredients' : ingredient, 'meal' : meal_type, 'prep_time' : prep_time }
 
 while(1):
     text = input("\nPlease select an option by typing the corresponding number:\n1: Add a recipe\n2: Delete a recipe\n3: Print a recipe\n4: Print the cookbook\n5: Quit\n");
