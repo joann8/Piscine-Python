@@ -41,7 +41,6 @@ def add_recipe(name):
         if nb < 0:
             print("You need to enter a positive number")
     cookbook[name]['prep_time'] =nb
-    #cookbook[name] ={'ingredients' : ingredient, 'meal' : meal_type, 'prep_time' : prep_time }
 
 while(1):
     text = input("\nPlease select an option by typing the corresponding number:\n1: Add a recipe\n2: Delete a recipe\n3: Print a recipe\n4: Print the cookbook\n5: Quit\n");

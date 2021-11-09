@@ -1,0 +1,3 @@
+curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh"
+sh Miniconda3-latest-MacOSX-x86_64.sh -p /goinfre/miniconda3
+# Dites yes pour le conda init a la fin de l'installation
