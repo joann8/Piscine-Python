@@ -144,17 +144,30 @@ class Vector(object):
     def __repr__(self):
 	    return f"Vector(shape={self.shape} value={self.values})"
 
-    def dot(self):
-        pass
+    def dot(self, vec):
+        print("-- enter dot --")
+        if not isinstance(vec, Vector):
+            raise ValueError("DOT: not a type Vector")
+        if self.shape != vec.shape:
+            raise ValueError("DOT: vectors not of same shape")
+        new_list =[]
+        if self.shape[0] == 1: # row vector
+            for i in range(self.shape[1]):
+                new_list.append(self.values[i] * vec.values[i])
+        else: #column vector
+            for i in range(self.shape[0]):
+                new_list.append([self.values[i][0] * vec.values[i][0]])
+        return Vector(new_list)
 
     def T(self):
+        print("-- enter T --")
         new_list = []
         if self.shape[0] == 1: #row vector
+            print("from row to column")
             for i in range(self.shape[1]):
                 new_list.append([self.values[i]])
         else: #column
+            print("from column to row")
             for i in range(self.shape[0]):
                 new_list.append(self.values[i][0])
         return Vector(new_list)
-
-

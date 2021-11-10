@@ -33,6 +33,10 @@ try:
     print(ex44.values)
     ex444 = ex44 / 2
     print(ex444.values)
+    ex4444 = ex444.T()
+    print(ex4444.values)
+    ex44444 = ex4444.dot(ex33)
+    print(ex44444.values)
 
 except ValueError as err:
     print(err.args)
