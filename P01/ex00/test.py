@@ -11,6 +11,8 @@ ile = Recipe('ile flottante', 2, 55, ['creme', 'oeufs'], 'personne n\'en mage', 
 soupe = Recipe('soupe', 3, 15, ['legumes', 'fromage'], 'for winter', 'starter')
 gaspa = Recipe('gaspacho', 2, 25, ['legumes', 'croutons'], 'for summer', 'starter')
 
+print(to_print)
+
 book.add_recipe(sushi)
 book.add_recipe(pho)
 book.add_recipe(pana)
@@ -22,5 +24,5 @@ book.get_recipe_by_name('pho')
 book.get_recipe_by_name('xiao long bao')
 book.get_recipes_by_types('dessert')
 book.get_recipes_by_types('dinner')
-to_print = str(book)
-print(to_print)
+
+print(book)

@@ -35,7 +35,7 @@ class Recipe(object):
         self.recipe_type = recipe_type
     
     def __str__(self):
-        return("Name : " + self.name + " | Cooking_time : " + str(self.cooking_time) + " | Cooking_lvl : " + str(self.cooking_lvl) + " | Ingredients : " + str(self.ingredients) + " | Description : "  + self.description + " | Recipe_type : " + self.recipe_type)
+        return("*********************\nName : " + self.name + " | Cooking_time : " + str(self.cooking_time) + " | Cooking_lvl : " + str(self.cooking_lvl) + " | Ingredients : " + str(self.ingredients) + " | Description : "  + self.description + " | Recipe_type : " + self.recipe_type + "\n*********************")
 
 
 

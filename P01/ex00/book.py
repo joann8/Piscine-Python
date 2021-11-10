@@ -19,7 +19,7 @@ class Book(object):
         self.last_update = 0
             
     def __str__(self):
-        return("Name : " + self.name + " | creation_date : " + str(self.creation_date) + " | last_update : " + str(self.last_update))
+        return("*********************\nName : " + self.name + " | creation_date : " + str(self.creation_date) + " | last_update : " + str(self.last_update) + "\n*********************")
 
     def get_recipe_by_name(self, name): 
         """Prints a recipe with the name \texttt{name} and returns the instance"""

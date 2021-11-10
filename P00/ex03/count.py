@@ -11,12 +11,12 @@ def text_analyser(*args):
         text = input("What is the file to input?\n")
     
     else:
-        text = args[0];
+        text = args[0]
 
-    c_space = 0;
-    c_lower = 0;
-    c_upper = 0;
-    c_punctuation = 0;
+    c_space = 0
+    c_lower = 0
+    c_upper = 0
+    c_punctuation = 0
 
     for c in text:
         if c == ' ':
