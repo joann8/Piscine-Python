@@ -17,8 +17,7 @@ class Evaluator():
         result = zip(coefs, words)
         count = sum((obj[0] * len(obj[1])) for obj in result)
         return count
-        
-    
+           
     @staticmethod
     def enumerate_evaluate(coefs, words):
         check_value(coefs, words)
