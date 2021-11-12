@@ -6,6 +6,7 @@ Home-page: UNKNOWN
 Author: jacher
 Author-email: jacher@student.42.fr
 License: GPLv3
+Keywords: logging,log,bar,progressbar,progress
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Developers
@@ -16,8 +17,7 @@ Classifier: Topic :: Package
 Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
 Classifier: Programming Language :: Python :: 3
 Classifier: Programming Language :: Python :: 3 :: Only
-Classifier: Operating System :: OS Independent
-Requires-Python: >=3.7
+Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 

@@ -1,9 +1,29 @@
 import time
 from random import randint
 import os 
+from time import time
+from time import sleep
+
+def progressbar(listing, sizebar=30):
+    elapsed_time = 0
+    loopend = 0.01
+    count = len(listing)
+    for i, item in enumerate(listing):
+        loopstart = time()
+        x = int(sizebar * (i + 1) / count)
+        print("\rETA: %.2fs [%3d%%][%s>%s] %d/%d | elapsed time %.2fs"
+              % (loopend * (len(listing) - i) + elapsed_time,
+                 (i + 1) / count * 100,
+                 "=" * x,
+                 " " * (sizebar - x), (i + 1), count, elapsed_time),
+              end='', flush=True)
+        yield item
+        loopend = time() - loopstart
+        elapsed_time = elapsed_time + loopend
+
 
 #... definition of log decorator...
-def log(function):
+def logger(function):
     def new_function(elem, water_lvl=None):
 
         file_log = open('machine.log', "a")
@@ -27,7 +47,7 @@ def log(function):
 class CoffeeMachine():
     water_level = 100
     
-    @log
+    @logger
     def start_machine(self):       
         if self.water_level > 20:
             return True
@@ -35,11 +55,11 @@ class CoffeeMachine():
             print("Please add water!")
             return False
 
-    @log
+    @logger
     def boil_water(self):
         return "boiling..."
     
-    @log
+    @logger
     def make_coffee(self):
         if self.start_machine():
             for _ in range(20):
@@ -48,15 +68,8 @@ class CoffeeMachine():
             print(self.boil_water())
             print("Coffee is ready!")
     
-    @log
+    @logger
     def add_water(self, water_level):
         time.sleep(randint(1, 5))
         self.water_level += water_level
         print("Blub blub blub...")
-
-if __name__ == "__main__":
-    machine = CoffeeMachine()
-    for i in range(0, 5):
-        machine.make_coffee()
-    machine.make_coffee()
-    machine.add_water(70)
