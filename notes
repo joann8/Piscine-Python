@@ -1,0 +1,9 @@
+Global:
+- pycodestyle a respecter
+
+P00:
+- refaire ex10 loading
+
+P03
+- Ex03 filtre celluloid a faire
+- Ex04 : mettre labels clusters + affiner methode scoring
