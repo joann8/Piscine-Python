@@ -18,10 +18,9 @@ class CsvReader():
 
     def __enter__(self):
         try:
-            self.file = open(self.filename, "r")
+            self.file = open(self.filename, mode='r', encoding='utf-8')
         except OSError as e:
             print(e.errno)
-        print(self.file)
         line = self.file.readline()
         new_line = line.replace(" ", "")
         new_line = new_line.replace("\"", "")
