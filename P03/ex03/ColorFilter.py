@@ -31,15 +31,14 @@ class ColorFilter():
             None: otherwise.
         Raises:
             This function should not raise any Exception.
+        ◦ Authorized functions:.zeros,.shape,.dstack
+        ◦ Authorized operator:None
         """
         if not isinstance(array, np.ndarray):
             print("This array is not an numpy array")
             return None
-        tmp = array[:,:,:3]
-        blue_arr = np.zeros(tmp.shape)
-        for i in range(blue_arr.shape[0]):
-            for j in range(blue_arr.shape[1]):
-                blue_arr[i, j] = np.dstack((np.zeros(1), np.zeros(1), tmp[i,j][-1:]))
+        blue_arr = np.zeros(np.shape(array[:,:,:3]))
+        blue_arr[:,:,2] = array[:,:,2]
         return blue_arr
 
     @staticmethod
@@ -59,8 +58,7 @@ class ColorFilter():
         if not isinstance(array, np.ndarray):
             print("This array is not an numpy array")
             return None
-        tmp = array[:,:,:3]
-        return copy.deepcopy(tmp[:,:][:] * [0, 1, 0])
+        return copy.deepcopy(array[:,:,:3] * [0, 1, 0])
     
     @staticmethod
     def to_red(array): 
@@ -78,9 +76,8 @@ class ColorFilter():
         if not isinstance(array, np.ndarray):
             print("This array is not an numpy array")
             return None
-        tmp = array[:,:,:3]
         obj = ColorFilter()
-        return (tmp  - obj.to_blue(array) - obj.to_green(array))
+        return (array[:,:,:3]  - obj.to_blue(array) - obj.to_green(array))
 
     @staticmethod
     def to_celluloid(array): 
@@ -139,7 +136,16 @@ class ColorFilter():
             if not isinstance(weight,list) or len(weight) != 3 and not isinstance(weight[0], float) or not isinstance(weight[1], float) or not isinstance(weight[2], float) or weight[0] + weight[1] + weight[2] != 1:
                 print("Need 3 floats with sum = 1")
                 return None
-
-        #greyscale A FAIRE
-        return None
+            else:
+                r = weight[0]
+                g = weight[1]
+                b = weight[2]
+        else:
+            r = 0.2126 #0.2989 
+            g = 0.7152 #0.5870
+            b = 0.0722 #0.1140 
+    
+        
+        gray = array[:,:,0] * r  + array[:,:,1] * 255 * g + array[:,:,2] * 255 * b
+        return gray
        

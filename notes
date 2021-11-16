@@ -7,3 +7,6 @@ P00:
 P03
 - Ex03 filtre celluloid a faire + autres filtres a refaire en respectant operateur
 - Ex04 : mettre labels clusters + affiner methode scoring
+
+P04:
+- Ex07: seaborn.distplot bientot epreciated --> a revoir 
