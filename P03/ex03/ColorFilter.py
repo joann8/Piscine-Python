@@ -137,11 +137,13 @@ class ColorFilter():
 				print("Need 3 floats with sum = 1")
 				return None
 			else:
-				tmp = array[:,:,:3]
-				means = np.sum(tmp * np.broadcast_to(weight, tmp.shape), -1) / 3
-				return np.dstack((means, means, means))
+				r = weight[0]
+				g = weight[1]
+				b = weight[2]
 		else:
-			tmp = array[:,:,:3]
-			print(tmp)
-			print(np.sum(tmp, -1))
-			return np.dstack((np.sum(tmp, -1), np.sum(tmp, -1), np.sum(tmp, -1)))/ 3
+			r = 0.299
+			g = 0.587
+			b = 0.114
+		
+		means =  array[:,:,0] * r + array[:,:,1] * g + array[:,:,2] * b  
+		return np.dstack((means, means, means,  array[:,:,3]))
