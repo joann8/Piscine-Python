@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 import copy
 
 def distance(X, Y):
-      return np.square(X[0] - Y[0]) + np.square(X[1] -Y[1]) + np.square(Y[2] - Y[2])
+      #return np.square(X[0] - Y[0]) + np.square(X[1] -Y[1]) + np.square(Y[2] - Y[2])
+      return np.square((X[0] - Y[0])**2 + (X[1] -Y[1])**2 + (Y[2] - Y[2])**2)
 
 class KmeansClustering:
     def __init__(self, max_iter=20, ncentroid=4):
